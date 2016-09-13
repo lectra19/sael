@@ -20,33 +20,45 @@
 				<div id = "titleSpace">
 						<h1> Computational Thinking </h1>
 						<h2> ΑΕΜ:2152 - 2216 - 2234</h2>
-						<h3>DECOMPOSE</h3>
+						<h3>DECOMPOSE - TILES</h3>
 				</div>
 				</center>
 			</div>
 		
 		<div class = "centerContainer">			
-			<div id="gameboard" style="width:1020; height:600; color:#'00FFCC';"> <!-- ΝΑ ΔΙΟΡΘΩΘΕΙ ΣΤΟ CSS   -->
-					<a href="multi.html" style = "text-decoration:none;" id = "decomposebut">
-						<div>
-							<strong>Πολλαπλασιασμός<strong/>
-						</div>
-					</a>		
-					<a href="cubes.html" style = "text-decoration:none;" id = "decomposebut">
-						<div>
-							<strong>Άσκηση με κύβο<strong/>
-						</div>
-					</a>
-					<a href="tiles.html" style = "text-decoration:none;" id = "decomposebut">
-						<div>
-							<strong>Πλακάκια<strong/>
-						</div>
-					</a>
-					<a href="chess.html" style = "text-decoration:none;" id = "decomposebut">
-						<div>
-							<strong>Σκάκι<strong/>
-						</div>
-					</a>
+			<div id="gameboard" style="width:1020; height:600;">
+								
+				<!--<button type="button" name="selection" value="val" hidden="true" id="d" 	>Click Me!</button>    -->
+				<script>
+					// first set the value you will be using.
+					var STATIC = ""; // and anything else you need to set
+				</script>
+				<script type="text/javascript" src="{% static 'computational_thinking/requestAnimationFramePolyfill.js' %}"></script>
+				<script type="text/javascript" src="{% static 'computational_thinking/tiles.js' %}"></script>
+				<script>
+				/*function test(){
+				if(document.getElementById("d").value=="intro"){
+				var para = document.createElement("div");
+				para.id="did";
+				para.name="DANAME";
+				para.style.width="1020";
+				para.setAttribute("style","width:1020");
+				para.style.color="black";
+				var node = document.createTextNode("This is newgl;oivp;piv;pbio/p;o.");
+				para.appendChild(node);
+
+				var element = document.getElementById("gameboard");
+				var child = document.getElementById("p1");
+				element.insertBefore(para,child);
+				
+				
+				}
+				else if(document.getElementById("d").value=="multiplication")
+				{*/
+				play();
+				//}
+				//}
+				</script>
 				
     		</div>
 			
@@ -67,11 +79,11 @@
 													<div>
 														<input type="image" src="{% static 'computational_thinking/assets/decompose.png' %}" alt="Submit" width="30%" height="30%">
 														<center>Τμηματοποίηση</center>
-															<ul>			<!--  ΝΑ ΔΙΟΡΘΩΘΕΙ ΣΤΟ CSS || και στις υπολοιποες σελιδες απο κατω  -->
+															<ul>
 																<li><a href="multi.html" />Πολλαπλασιασμός</a></li>
 																<li><a href="cubes.html" />Κύβοι</a></li>
 																<li><a href="tiles.html" />Πλακάκια</a></li>
-																<li><a href="chess.html" />Πλακάκια</a></li>
+																<li><a href="chess.html" />Σκάκι</a></li>
 															
 															</ul>
 													</div>
@@ -79,7 +91,7 @@
 									</li>
 									
 									<li>
-											<a href = "pattern.html">
+											<a href = "#">
 													<div>
 														<input type="image" src="{% static 'computational_thinking/assets/pattern.png' %}" alt="Submit" width="30%" height="30%">
 														<center>Μοτιβο</center>
