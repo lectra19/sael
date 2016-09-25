@@ -3,11 +3,29 @@ var lab2={str:"",x:420,y:0,width:0,height:0};
 var lab3={str:"",x:420,y:0,width:0,height:0};
 var lab4={str:"",x:420,y:0,width:0,height:0};
 var lab1={str:"",x:420,y:0,width:0,height:0};
-var labtxt={str:"Ποιο είναι το αποτέλεσμα του παρακάτω πολλαππλασιασμού;",x:70,y:120,width:0,height:0};
+var labtxt={str:"Ποιο είναι το επόμενο σχήμαπου θα εμφανιστεί",x:70,y:120,width:0,height:0};
+//var labnums={str:"",x:500,y:180,width:0,height:0};
 
 
+var imgArray = new Array();
 
+imgArray[0] = new Image();
+imgArray[0].src = '/static/computational_thinking/assets/next-button.png';
 
+imgArray[1] = new Image();
+imgArray[1].src = '/static/computational_thinking/assets/abstraction.png';
+
+imgArray[2] = new Image();
+imgArray[2].src = '/static/computational_thinking/assets/algorithm.png';
+
+imgArray[3] = new Image();
+imgArray[3].src = '/static/computational_thinking/assets/home.png';
+
+imgArray[4] = new Image();
+imgArray[4].src = '/static/computational_thinking/assets/decompose.png';
+
+imgArray[5] = new Image();
+imgArray[5].src = '/static/computational_thinking/assets/pattern.png';
 
 function play()
 {
@@ -21,7 +39,9 @@ function play()
 		};
 
 	buttImage.src = "/static/computational_thinking/assets/next-button.png";
-	//Butt Image
+	//Button Image
+	
+	
 	
 	function imgcollides( x, y) {
     var isCollision = false;
@@ -37,6 +57,10 @@ function play()
         }
     return isCollision;
 	}
+	
+	
+	
+	
 	function shuffle(array) {
     let counter = array.length;
 
@@ -55,7 +79,12 @@ function play()
     }
 
     return array;
-}
+	}
+	
+	
+	
+	
+	
 	function drawTextBG(ctx, txt, font, x, y) {
 
     /// lets save current state as we make a lot of changes        
@@ -92,7 +121,7 @@ function play()
 	
 	
 	//generating random number for x, y and filling labels
-	function generate(x,y,lab1,lab2,lab3,lab4, labnums){
+	/*function generate(x,y,lab1,lab2,lab3,lab4, labnums){
 		
 		x = getRandomInt(1,10);
 		y = getRandomInt(1,10);
@@ -139,7 +168,8 @@ function play()
 			labels[i].height=parseInt("20px Verdana", 10);
 			labels[i].y = 300 + i*(labels[i].height+15);
 		}
-	}
+	}*/
+	
 	
 	function collides( x, y,lbl) {
     var isCollision = false;
@@ -155,6 +185,8 @@ function play()
         }
     return isCollision;
 }
+	
+	
 	
 var canvas = document.createElement("canvas");
 //var canvas = document.querySelector("canvas");
@@ -190,6 +222,9 @@ document.getElementById("gameboard").appendChild(canvas);
 
 canvas.addEventListener("mousemove", mousemoveHandler, false);
 canvas.addEventListener("mousedown", mousedownHandler, false);
+
+
+
 
 function mousemoveHandler(event)
 { 
@@ -260,7 +295,7 @@ function mousedownHandler(event)
    if (stage==2 || stage==3) {
    if (mouseX>100 && mouseX<350  && mouseY>400 && mouseY<550){
     if (count<=10) {
-	generate(x,y,lab1,lab2,lab3,lab4, labnums);
+	//generate(x,y,lab1,lab2,lab3,lab4, labnums);
 	stage=1;
   count++;}
    if (count>10) {
@@ -271,13 +306,14 @@ function mousedownHandler(event)
 
    if (stage==4) {
     if (mouseX>100 && mouseX<370  && mouseY>400 && mouseY<550){
-   window.location.href = "decompose.html";}
+   window.location.href = "pattern.html";}
    }
 
 
 }
 
-generate(x,y,lab1,lab2,lab3,lab4, labnums);
+shuffle(imgArray);
+//generate(x,y,lab1,lab2,lab3,lab4, labnums);
 update();
 
 
@@ -299,11 +335,24 @@ if (stage==1) {
 	drawingSurface.fillText(lab4.str,420,600);
 	*/
 	drawTextBG(canvas.getContext("2d"), labtxt.str, "30px Verdana", labtxt.x, labtxt.y);
-	drawTextBG(canvas.getContext("2d"), labnums.str, "35px Verdana", labnums.x, labnums.y);
-	drawTextBG(canvas.getContext("2d"), lab1.str, "20px Verdana", 420, lab1.y);
-	drawTextBG(canvas.getContext("2d"), lab2.str, "20px Verdana", 420, lab2.y);
-	drawTextBG(canvas.getContext("2d"), lab3.str, "20px Verdana", 420, lab3.y);
-	drawTextBG(canvas.getContext("2d"), lab4.str, "20px Verdana", 420, lab4.y);
+	//drawTextBG(canvas.getContext("2d"), labnums.str, "35px Verdana", labnums.x, labnums.y);
+	
+	drawingSurface.drawImage
+	(imgArray[0],200,330, 50, 50);
+	drawingSurface.drawImage
+	(imgArray[1],275,330, 50, 50);
+	drawingSurface.drawImage
+	(imgArray[2],350,330, 50, 50);
+	drawingSurface.drawImage
+	(imgArray[3],425,330, 50, 50);
+	drawingSurface.drawImage
+	(imgArray[4],500,330, 50, 50);
+	drawingSurface.drawImage
+	(imgArray[4],575,330, 50, 50);
+	//drawTextBG(canvas.getContext("2d"), lab1.str, "20px Verdana", 420, lab1.y);
+	//drawTextBG(canvas.getContext("2d"), lab2.str, "20px Verdana", 420, lab2.y);
+	//drawTextBG(canvas.getContext("2d"), lab3.str, "20px Verdana", 420, lab3.y);
+	//drawTextBG(canvas.getContext("2d"), lab4.str, "20px Verdana", 420, lab4.y);
 	
 	if (buttReady) {
 		 canvas.getContext("2d").drawImage(buttImage, 800, 540);
@@ -313,7 +362,7 @@ if (stage==1) {
 	
 }
 
-if (stage==0) {
+if (stage==0) {		// ΝΑ ΕΜΦΑΝΙΣΤΕΙ stage=0 'Η ΝΑ ΔΗΜΙΟΥΡΓΗΣΟΥΜΕ ΙΝΤΡΟ ΓΙΑ ΠΟΛΛΑΠΛΑΣΙΑΣΜΟ
 	
 drawingSurface.fillStyle="#FFFFCC";
 drawingSurface.fillRecaat(0, 0, canvas.width, canvas.height);
@@ -373,7 +422,7 @@ drawingSurface.fillStyle= "#660000";
 drawingSurface.fillText("ΛΑΘΟΣ!!",320,180);
 drawingSurface.font = "30px Verdana";
 drawingSurface.fillStyle= "#000080";
-drawingSurface.fillText("Η σωστή απάντηση είναι:  "+lab1.str,100,270);
+//drawingSurface.fillText("Η σωστή απάντηση είναι:  "+lab1.str,100,270);
 
 drawingSurface.drawImage
  (image2,600,330, 250, 250);
@@ -409,7 +458,7 @@ drawingSurface.fillStyle= "#CCFF66";
 drawingSurface.fillRect(100,400,270,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
-drawingSurface.fillText("ΠΑΙΞΕ ΞΑΝΑ",110,490);
+drawingSurface.fillText("ΠΙΣΩ",110,490);
 
 drawingSurface.font = "20px Verdana";
 drawingSurface.fillStyle= "#000080";

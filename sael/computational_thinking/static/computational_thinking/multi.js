@@ -68,7 +68,7 @@ function play()
     ctx.textBaseline = 'top';
 
     /// color for background
-    ctx.fillStyle = '#f50';
+    ///ctx.fillStyle = 'white';
 
     /// get width of text
     var width = ctx.measureText(txt).width;
@@ -237,8 +237,9 @@ function mousedownHandler(event)
   
   if (stage==0) {
     if (mouseX>375 && mouseX<625  && mouseY>450 && mouseY<570){
-  stage=1;
-  mouseY=0;}
+		stage=1;
+		mouseY=0;
+		}
    }
   
   
@@ -271,7 +272,7 @@ function mousedownHandler(event)
 
    if (stage==4) {
     if (mouseX>100 && mouseX<370  && mouseY>400 && mouseY<550){
-   window.location.href = "decompose.html";}
+   window.location.href = "multi.html";}
    }
 
 
@@ -313,7 +314,7 @@ if (stage==1) {
 	
 }
 
-if (stage==0) {
+if (stage==0) {		// ΝΑ ΕΜΦΑΝΙΣΤΕΙ stage=0 'Η ΝΑ ΔΗΜΙΟΥΡΓΗΣΟΥΜΕ ΙΝΤΡΟ ΓΙΑ ΠΟΛΛΑΠΛΑΣΙΑΣΜΟ
 	
 drawingSurface.fillStyle="#FFFFCC";
 drawingSurface.fillRecaat(0, 0, canvas.width, canvas.height);
@@ -329,8 +330,7 @@ drawingSurface.fillText("Για ηλικίες: 8+",20,360);
 
 
 
-drawingSurface.drawImage
- (image2,350,170, 250, 250);
+drawingSurface.drawImage(image2,350,170, 250, 250);
 
 drawingSurface.fillStyle= "#CCFF66";
 drawingSurface.fillRect(375,450,250,120);
@@ -409,7 +409,7 @@ drawingSurface.fillStyle= "#CCFF66";
 drawingSurface.fillRect(100,400,270,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
-drawingSurface.fillText("ΠΑΙΞΕ ΞΑΝΑ",110,490);
+drawingSurface.fillText("ΠΙΣΩ",110,490);
 
 drawingSurface.font = "20px Verdana";
 drawingSurface.fillStyle= "#000080";

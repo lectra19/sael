@@ -9,6 +9,7 @@ urlpatterns = [
 	url(r'^cubes', views.cubes, name='cubes'),
 	url(r'^tiles', views.tiles, name='tiles'),
 	url(r'^chess', views.chess, name='chess'),
-	url(r'^pattern', views.pattern, name='pattern')
+	url(r'^pattern', views.pattern, name='pattern'),
+	url(r'^shapes', views.shapes, name='shapes')
 	
 ]

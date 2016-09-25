@@ -44,5 +44,9 @@ def pattern(request):
     context={'STATIC':"static/computational_thinking"}
     return HttpResponse(template.render(context, request))
 	
+def shapes(request):
+    template = loader.get_template('computational_thinking/shapes.html')
+    context={'STATIC':"static/computational_thinking"}
+    return HttpResponse(template.render(context, request))
 	
 	

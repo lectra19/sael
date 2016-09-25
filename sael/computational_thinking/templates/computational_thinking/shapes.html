@@ -8,32 +8,36 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<title>ΣΑΕΛ</title>
 			
-			<link rel="stylesheet" type="text/css" href="{% static 'computational_thinking/style.css' %}" />
-			
+			<link rel="stylesheet" type="text/css" href="{% static 'computational_thinking/style.css' %}" />  			
 			<style>
 				
 			</style>
 		</head>
 	<body>
-		<div id = "main" >
+		<div id = "main">
 			<div id = "Title">
 				<center>
 				<div id = "titleSpace">
 						<h1> Computational Thinking </h1>
 						<h2> ΑΕΜ:2152 - 2216 - 2234</h2>
+						<h3>PATTERN</h3>
 				</div>
 				</center>
 			</div>
 		
-						
-			<div id="gameboard" style="width:1020; height:600;">
+		<div class = "centerContainer">			
+			<div id="gameboard" style="width:1020; height:600; color:#'00FFCC';"> <!-- ΝΑ ΔΙΟΡΘΩΘΕΙ ΣΤΟ CSS   -->
 				<script>
 					// first set the value you will be using.
 					var STATIC = ""; // and anything else you need to set
 				</script>
-				<script type="text/javascript" src="{% static 'computational_thinking/intro.js' %}"></script>
-
-			</div>
+				<script type="text/javascript" src="{% static 'computational_thinking/requestAnimationFramePolyfill.js' %}"></script>
+				<script type="text/javascript" src="{% static 'computational_thinking/shapes.js' %}"></script>
+				<script>
+				play();
+				</script>
+				
+    		</div>
 			
 			<div id = "right_side">
 				<center>
@@ -48,19 +52,34 @@
 									</li>
 									
 									<li>
-											<a href = "decompose.html"> <!-- αλλαγη hyperlink. O,οιως και στα υπόλοιπα -->
+											<a href = "decompose.html">
 													<div>
 														<input type="image" src="{% static 'computational_thinking/assets/decompose.png' %}" alt="Submit" width="30%" height="30%">
-														<center>Αποσύνθεση</center>
+														<center>Τμηματοποίηση</center>
+															<!--<ul>			//  ΝΑ ΔΙΟΡΘΩΘΕΙ ΣΤΟ CSS || και στις υπολοιποες σελιδες απο κατω 
+																<li><a href="multi.html" />Πολλαπλασιασμός</a></li>
+																<li><a href="cubes.html" />Κύβοι</a></li>
+																<li><a href="tiles.html" />Πλακάκια</a></li>
+																<li><a href="chess.html" />Πλακάκια</a></li>
+															
+															</ul> 
+															-->
 													</div>
 											</a>
 									</li>
 									
 									<li>
-											<a href = "pattern.html">  <!-- ΝΑ αλλαξει το # στα html της decompose -->
+											<a href = "pattern.html">
 													<div>
 														<input type="image" src="{% static 'computational_thinking/assets/pattern.png' %}" alt="Submit" width="30%" height="30%">
-														<center>Μοτίβο</center>
+														<center>Μοτιβο</center>
+															<ul>			<!-- ΝΑ ΔΙΟΡΘΩΘΕΙ ΣΤΟ CSS || και στις υπολοιποες σελιδες απο κατω --> 
+																<li><a href="shapes.html" />Άσκηση 1</a></li>
+																<li><a href="pattern.html" />Άσκηση 2</a></li>
+																<li><a href="pattern.html" />Άσκηση 3</a></li>
+																<li><a href="pattern.html" />Πλακάκια</a></li>
+															
+															</ul> 
 													</div>
 											</a>
 									</li>
@@ -69,7 +88,7 @@
 											<a href = "#">
 													<div>
 														<input type="image" src="{% static 'computational_thinking/assets/abstraction.png' %}" alt="Submit" width="30%" height="30%">
-														<center>Αφαιρετική σκέψη</center>
+														<center>Αφαιρεση</center>
 													</div>
 											</a>
 									</li>
@@ -90,7 +109,7 @@
 							
 			</div>
 
-		
+		</div>
 		
 		</div>
 	</body>
