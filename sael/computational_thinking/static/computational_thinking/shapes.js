@@ -172,14 +172,12 @@ function play()
 	}*/
 	
 	
-	imgArray[0].x =
-	imgArray[1].x
-	imgArray[2].x
-	imgArray[3].x
-	imgArray[0].y
-	imgArray[1].y
-	imgArray[2].y
-	imgArray[3].y
+	for(i=0 ; i<4 ; i++){
+		imgArray[i].y = 280;
+		imgArray[i].width = 50;
+		imgArray[i].height = 50;
+	}
+	
 	
 	
 	function collides( x, y,img) {
@@ -350,6 +348,7 @@ if (stage==1) {
 	for(i=0; i<4; i++){
 		drawingSurface.drawImage
 	(imgArray[i],250+span ,280, 50, 50);
+	imgArray[i].x = 250+span;
 	span+=100;
 	}
 	
