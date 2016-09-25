@@ -13,19 +13,20 @@ imgArray[0] = new Image();
 imgArray[0].src = '/static/computational_thinking/assets/next-button.png';
 
 imgArray[1] = new Image();
-imgArray[1].src = '/static/computational_thinking/assets/abstraction.png';
+imgArray[1].src = '/static/computational_thinking/assets/decompose.png';
 
 imgArray[2] = new Image();
 imgArray[2].src = '/static/computational_thinking/assets/algorithm.png';
 
 imgArray[3] = new Image();
-imgArray[3].src = '/static/computational_thinking/assets/home.png';
+imgArray[3].src = '/static/computational_thinking/assets/pattern.png';
 
-imgArray[4] = new Image();
+/*imgArray[4] = new Image();
 imgArray[4].src = '/static/computational_thinking/assets/decompose.png';
 
 imgArray[5] = new Image();
-imgArray[5].src = '/static/computational_thinking/assets/pattern.png';
+imgArray[5].src = '/static/computational_thinking/assets/algorithm.png';
+*/
 
 function play()
 {
@@ -171,12 +172,22 @@ function play()
 	}*/
 	
 	
-	function collides( x, y,lbl) {
+	imgArray[0].x =
+	imgArray[1].x
+	imgArray[2].x
+	imgArray[3].x
+	imgArray[0].y
+	imgArray[1].y
+	imgArray[2].y
+	imgArray[3].y
+	
+	
+	function collides( x, y,img) {
     var isCollision = false;
-            var left = lbl.x;
-			var right = lbl.x + lbl.width;
-			var top = lbl.y;
-			var bottom = lbl.y + lbl.height;
+            var left = img.x;
+			var right = img.x + img.width;
+			var top = img.y;
+			var bottom = img.y + img.height;
         if (right >= x
             && left <= x
             && bottom >= y
@@ -243,7 +254,7 @@ function mousemoveHandler(event)
 
    if (stage==1) {
 	  canvas.style.cursor = "default";
-	if(collides(mouseX, mouseY, lab1) || collides(mouseX, mouseY, lab2) || collides(mouseX, mouseY, lab3) || collides(mouseX, mouseY, lab4))
+	if(collides(mouseX, mouseY, imgArray[0]) || collides(mouseX, mouseY, imgArray[1]) || collides(mouseX, mouseY, imgArray[2]) || collides(mouseX, mouseY, imgArray[3]))
     canvas.style.cursor = "pointer";
    
    }
@@ -280,11 +291,11 @@ function mousedownHandler(event)
   
   if (stage==1) {
     
-	if(collides(mouseX, mouseY, lab1)){
+	if(collides(mouseX, mouseY, imgArray[1])){
 		stage=2;
 		cor++;
   }
-	else if(collides(mouseX, mouseY, lab2) || collides(mouseX, mouseY, lab3) || collides(mouseX, mouseY, lab4))
+	else if(collides(mouseX, mouseY, imgArray[0]) || collides(mouseX, mouseY, imgArray[2]) || collides(mouseX, mouseY, imgArray[3]))
         stage=3;
 	
    
@@ -335,20 +346,32 @@ if (stage==1) {
 	drawingSurface.fillText(lab4.str,420,600);
 	*/
 	drawTextBG(canvas.getContext("2d"), labtxt.str, "30px Verdana", labtxt.x, labtxt.y);
-	//drawTextBG(canvas.getContext("2d"), labnums.str, "35px Verdana", labnums.x, labnums.y);
+	var span=0;
+	for(i=0; i<4; i++){
+		drawingSurface.drawImage
+	(imgArray[i],250+span ,280, 50, 50);
+	span+=100;
+	}
+	
 	
 	drawingSurface.drawImage
-	(imgArray[0],200,330, 50, 50);
+	(imgArray[0],100,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[1],275,330, 50, 50);
+	(imgArray[0],175,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[2],350,330, 50, 50);
+	(imgArray[2],250,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[3],425,330, 50, 50);
+	(imgArray[1],325,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[4],500,330, 50, 50);
+	(imgArray[1],400,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[4],575,330, 50, 50);
+	(imgArray[3],475,400, 50, 50);
+	drawingSurface.drawImage
+	(imgArray[0],550,400, 50, 50);
+	drawingSurface.drawImage
+	(imgArray[0],625,400, 50, 50);
+	drawingSurface.drawImage
+	(imgArray[2],700,400, 50, 50);
 	//drawTextBG(canvas.getContext("2d"), lab1.str, "20px Verdana", 420, lab1.y);
 	//drawTextBG(canvas.getContext("2d"), lab2.str, "20px Verdana", 420, lab2.y);
 	//drawTextBG(canvas.getContext("2d"), lab3.str, "20px Verdana", 420, lab3.y);
@@ -422,7 +445,10 @@ drawingSurface.fillStyle= "#660000";
 drawingSurface.fillText("ΛΑΘΟΣ!!",320,180);
 drawingSurface.font = "30px Verdana";
 drawingSurface.fillStyle= "#000080";
-//drawingSurface.fillText("Η σωστή απάντηση είναι:  "+lab1.str,100,270);
+drawingSurface.fillText("Η σωστή απάντηση είναι:  ",100,270);
+drawingSurface.drawImage
+	(imgArray[1],250,245, 50, 50);
+
 
 drawingSurface.drawImage
  (image2,600,330, 250, 250);
