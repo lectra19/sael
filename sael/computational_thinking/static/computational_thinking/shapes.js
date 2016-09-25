@@ -21,6 +21,15 @@ imgArray[2].src = '/static/computational_thinking/assets/algorithm.png';
 imgArray[3] = new Image();
 imgArray[3].src = '/static/computational_thinking/assets/pattern.png';
 
+var span = 0;
+for(i=0 ; i<4 ; i++){
+		imgArray[i].y = 280;
+		imgArray[i].width = 50;
+		imgArray[i].height = 50;
+		imgArray[i].x = 250+span;
+		span+=100;
+	}
+	
 /*imgArray[4] = new Image();
 imgArray[4].src = '/static/computational_thinking/assets/decompose.png';
 
@@ -172,11 +181,6 @@ function play()
 	}*/
 	
 	
-	for(i=0 ; i<4 ; i++){
-		imgArray[i].y = 280;
-		imgArray[i].width = 50;
-		imgArray[i].height = 50;
-	}
 	
 	
 	
@@ -203,7 +207,7 @@ var drawingSurface = canvas.getContext("2d");
 
 canvas.width = 1020;
 canvas.height = 600;
-canvas.style.backgroundColor="#7FFFD4";
+canvas.style.backgroundColor="#AADAB1";
 
 image1=new Image();
 image1.src="/static/computational_thinking/assets/next-button.png";
@@ -344,12 +348,11 @@ if (stage==1) {
 	drawingSurface.fillText(lab4.str,420,600);
 	*/
 	drawTextBG(canvas.getContext("2d"), labtxt.str, "30px Verdana", labtxt.x, labtxt.y);
-	var span=0;
+
 	for(i=0; i<4; i++){
 		drawingSurface.drawImage
-	(imgArray[i],250+span ,280, 50, 50);
-	imgArray[i].x = 250+span;
-	span+=100;
+	(imgArray[i],imgArray[i].x ,imgArray[i].y, imgArray[i].width, imgArray[i].height);
+	
 	}
 	
 	
