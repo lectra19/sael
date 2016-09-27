@@ -6,7 +6,14 @@ var lab4={str:"",x:520,y:500,width:0,height:0};
 var labtxt={str:"Πόσες επιφάνειες υπάρχουν στον κύβο;",x:70,y:120,width:0,height:0};
 
 
+var image1 = new Image();
+image1.src = "/static/computational_thinking/assets/cube.png";
+img1={img:image1, x:470,y:280,width:320,height:180};
 
+var image3=new Image();
+image3.src="/static/computational_thinking/assets/thumbdown.png"; 	//ΑΛΛΑΓΗ ΕΙΚΟΝΩΝ
+var image2=new Image();
+image2.src="/static/computational_thinking/assets/thumb.png";
 
 
 function play()
@@ -20,7 +27,7 @@ function play()
 	buttReady = true;
 		};
 
-	buttImage.src = "/static/computational_thinking/assets/next-button.png";   //ΚΑΤΑΛΛΗΛΗ ΕΙΚΟΝΑ
+	buttImage.src = "/static/computational_thinking/assets/lamp.png";   //ΚΑΤΑΛΛΗΛΗ ΕΙΚΟΝΑ
 	//Butt Image
 	
 	function imgcollides( x, y) {
@@ -68,7 +75,7 @@ function play()
     ctx.textBaseline = 'top';
 
     /// color for background
-    ctx.fillStyle = '#f50';
+    ///ctx.fillStyle = '#f50';
 
     /// get width of text
     var width = ctx.measureText(txt).width;
@@ -132,10 +139,7 @@ canvas.width = 1020;
 canvas.height = 600;
 canvas.style.backgroundColor="#7FFFD4";
 
-image1=new Image();
-image1.src="/static/computational_thinking/assets/next-button.png"; 	//ΑΛΛΑΓΗ ΕΙΚΟΝΩΝ
-image2=new Image();
-image2.src="/static/computational_thinking/assets/next-button.png";
+
 
 var stage=1;
 
@@ -187,7 +191,7 @@ function mousedownHandler(event)
 	
    
 	if (imgcollides(mouseX, mouseY))
-		alert("Πόσους κύβους έχει ο μεγάλος κύβος. Πόσες επιφάνεις έχει ένας κύβος. Μη ξεχνας τις επιφανεις που δεν φαινονται"); //ΑΛΛΑΓΗ ΟΔΗΓΕΙΩΝ
+		alert("Πόσους κύβους έχει ο μεγάλος κύβος. Πόσες επιφάνεις έχει ένας κύβος. Μη ξεχνας τις επιφανεις που δεν φαινονται!"); //ΑΛΛΑΓΗ ΟΔΗΓΕΙΩΝ
   }
    
 	if(stage==2 || stage==3){
@@ -206,7 +210,7 @@ requestAnimationFrame(update, canvas);
 
 if (stage==1) {
 	
-	drawingSurface.fillStyle="#00FFCC";
+	drawingSurface.fillStyle="#7FFFD4";
 	drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 	
 	
@@ -217,18 +221,18 @@ if (stage==1) {
 	drawTextBG(canvas.getContext("2d"), lab4.str, "20px Verdana", lab4.x, lab4.y);
 	
 	if (buttReady) {
-		 canvas.getContext("2d").drawImage(buttImage, 800, 540);
+		 canvas.getContext("2d").drawImage(buttImage, 800, 540, 50, 50);
 	}
 	
 	drawingSurface.drawImage
-	(image2,350,170, 250, 250);
+	(img1.img,350,170, img1.width, img1.height);
 	
 }
 
 
 
 if (stage==2) {
-drawingSurface.fillStyle="#00FFCC";
+drawingSurface.fillStyle="#7FFFD4";
 drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -238,7 +242,7 @@ drawingSurface.fillText("ΜΠΡΑΒΟ!ΣΩΣΤΟ!",170,200);
 drawingSurface.drawImage
  (image2,600,330, 250, 250);
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(100,400,250,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
@@ -250,7 +254,7 @@ flag=true;
 }
 
 if (stage==3) {
-drawingSurface.fillStyle="#00FFCC";
+drawingSurface.fillStyle="#7FFFD4";
 drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -261,10 +265,10 @@ drawingSurface.fillStyle= "#000080";
 drawingSurface.fillText("Η σωστή απάντηση είναι:  "+lab2.str,100,270);
 
 drawingSurface.drawImage
- (image2,600,330, 250, 250);
+ (image3,600,330, 250, 250);
 
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(100,400,250,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";

@@ -10,6 +10,8 @@ urlpatterns = [
 	url(r'^tiles', views.tiles, name='tiles'),
 	url(r'^chess', views.chess, name='chess'),
 	url(r'^pattern', views.pattern, name='pattern'),
-	url(r'^shapes', views.shapes, name='shapes')
-	
+	url(r'^shapes', views.shapes, name='shapes'),
+	url(r'^colorshapes', views.colorshapes, name='colorshapes'),
+	url(r'^abstraction', views.abstraction, name='abstraction'),
+	url(r'^practiseabstraction', views.practiseabstraction, name='practiseabstraction')
 ]

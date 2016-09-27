@@ -49,4 +49,19 @@ def shapes(request):
     context={'STATIC':"static/computational_thinking"}
     return HttpResponse(template.render(context, request))
 	
+def colorshapes(request):
+    template = loader.get_template('computational_thinking/colorshapes.html')
+    context={'STATIC':"static/computational_thinking"}
+    return HttpResponse(template.render(context, request))
+	
+def abstraction(request):
+    template = loader.get_template('computational_thinking/abstraction.html')
+    context={'STATIC':"static/computational_thinking"}
+    return HttpResponse(template.render(context, request))
+	
+def practiseabstraction(request):
+    template = loader.get_template('computational_thinking/practiseabstraction.html')
+    context={'STATIC':"static/computational_thinking"}
+    return HttpResponse(template.render(context, request))
+	
 	

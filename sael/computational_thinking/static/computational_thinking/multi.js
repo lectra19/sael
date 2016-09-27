@@ -6,6 +6,10 @@ var lab1={str:"",x:420,y:0,width:0,height:0};
 var labtxt={str:"Ποιο είναι το αποτέλεσμα του παρακάτω πολλαππλασιασμού;",x:70,y:120,width:0,height:0};
 var labnums={str:"",x:500,y:180,width:0,height:0};
 
+var image1=new Image();
+image1.src="/static/computational_thinking/assets/thumb.png";
+var image2=new Image();
+image2.src="/static/computational_thinking/assets/thumbdown.png";
 
 
 
@@ -20,7 +24,7 @@ function play()
 	buttReady = true;
 		};
 
-	buttImage.src = "/static/computational_thinking/assets/next-button.png";
+	buttImage.src = "/static/computational_thinking/assets/lamp.png";
 	//Butt Image
 	
 	function imgcollides( x, y) {
@@ -164,10 +168,6 @@ canvas.width = 1020;
 canvas.height = 600;
 canvas.style.backgroundColor="#7FFFD4";
 
-image1=new Image();
-image1.src="/static/computational_thinking/assets/next-button.png";
-image2=new Image();
-image2.src="/static/computational_thinking/assets/next-button.png";
 
 
 var r1;
@@ -287,7 +287,7 @@ requestAnimationFrame(update, canvas);
 
 if (stage==1) {
 	
-	drawingSurface.fillStyle="#00FFCC";
+	drawingSurface.fillStyle="#7FFFD4";
 	drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 	
 	
@@ -307,7 +307,7 @@ if (stage==1) {
 	drawTextBG(canvas.getContext("2d"), lab4.str, "20px Verdana", 420, lab4.y);
 	
 	if (buttReady) {
-		 canvas.getContext("2d").drawImage(buttImage, 800, 540);
+		 canvas.getContext("2d").drawImage(buttImage, 800, 540, 50, 50);
 	}
 	
 	
@@ -316,7 +316,7 @@ if (stage==1) {
 
 if (stage==0) {		// ΝΑ ΕΜΦΑΝΙΣΤΕΙ stage=0 'Η ΝΑ ΔΗΜΙΟΥΡΓΗΣΟΥΜΕ ΙΝΤΡΟ ΓΙΑ ΠΟΛΛΑΠΛΑΣΙΑΣΜΟ
 	
-drawingSurface.fillStyle="#FFFFCC";
+drawingSurface.fillStyle="#5AFFFF";
 drawingSurface.fillRecaat(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -332,7 +332,7 @@ drawingSurface.fillText("Για ηλικίες: 8+",20,360);
 
 drawingSurface.drawImage(image2,350,170, 250, 250);
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#500E11";
 drawingSurface.fillRect(375,450,250,120);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#000080";
@@ -343,7 +343,7 @@ drawingSurface.fillStyle= "#000080";
 }
 
 if (stage==2) {
-drawingSurface.fillStyle="#00FFCC";
+drawingSurface.fillStyle="#7FFFD4";
 drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -351,9 +351,9 @@ drawingSurface.fillStyle= "#000080";
 drawingSurface.fillText("ΜΠΡΑΒΟ!ΣΩΣΤΟ!",170,200);
 
 drawingSurface.drawImage
- (image2,600,330, 250, 250);
+ (image1,600,330, 250, 250);
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(100,400,250,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
@@ -365,7 +365,7 @@ flag=true;
 }
 
 if (stage==3) {
-drawingSurface.fillStyle="#00FFCC";
+drawingSurface.fillStyle="#7FFFD4";
 drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -379,7 +379,7 @@ drawingSurface.drawImage
  (image2,600,330, 250, 250);
 
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(100,400,250,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
@@ -391,7 +391,7 @@ flag=true;
 }
 
 if (stage==4) {
-drawingSurface.fillStyle="#00FFCC";
+drawingSurface.fillStyle="#7FFFD4";
 drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -405,15 +405,12 @@ drawingSurface.fillText("Η βαθμολογία σου είναι:  "+cor+"/10"
 drawingSurface.drawImage
  (image2,600,330, 250, 250);
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(100,400,270,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
 drawingSurface.fillText("ΠΙΣΩ",110,490);
 
-drawingSurface.font = "20px Verdana";
-drawingSurface.fillStyle= "#000080";
-drawingSurface.fillText("kpapast Games",850,580);
 
 }
 

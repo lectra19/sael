@@ -3,39 +3,39 @@ var lab2={str:"",x:420,y:0,width:0,height:0};
 var lab3={str:"",x:420,y:0,width:0,height:0};
 var lab4={str:"",x:420,y:0,width:0,height:0};
 var lab1={str:"",x:420,y:0,width:0,height:0};
-var labtxt={str:"Ποιο είναι το επόμενο σχήμαπου θα εμφανιστεί",x:70,y:120,width:0,height:0};
+var labtxt={str:"Ποιο είναι το επόμενο σχήμα που θα εμφανιστεί;",x:70,y:120,width:0,height:0};
 //var labnums={str:"",x:500,y:180,width:0,height:0};
+
+//dhmiourgw parakatw dyo images me onomata image1 kai image2
+
+var image1=new Image();
+image1.src="/static/computational_thinking/assets/thumb.png"; 
+
+var image2=new Image();
+image2.src="/static/computational_thinking/assets/thumbdown.png"; 
+
+var image3 = new Image();
+image3.src = "/static/computational_thinking/assets/apple2.png";
+img3={img:image3, x:250,y:280,width:80,height:80};
+
+var image4 = new Image();
+image4.src = "/static/computational_thinking/assets/burger.png";
+img4={img:image4, x:350,y:280,width:80,height:80};
+
+var image5 = new Image();
+image5.src = "/static/computational_thinking/assets/pink-icecream.png";
+img5={img:image5, x:450,y:280,width:80,height:80};
+
+var image6 = new Image();
+image6.src = "/static/computational_thinking/assets/pink-strawberry.png";
+img6={img:image6, x:550,y:280,width:80,height:80};
 
 
 var imgArray = new Array();
+imgArray = [img3, img4, img5, img6];
 
-imgArray[0] = new Image();
-imgArray[0].src = '/static/computational_thinking/assets/next-button.png';
 
-imgArray[1] = new Image();
-imgArray[1].src = '/static/computational_thinking/assets/decompose.png';
 
-imgArray[2] = new Image();
-imgArray[2].src = '/static/computational_thinking/assets/algorithm.png';
-
-imgArray[3] = new Image();
-imgArray[3].src = '/static/computational_thinking/assets/pattern.png';
-
-var span = 0;
-for(i=0 ; i<4 ; i++){
-		imgArray[i].y = 280;
-		imgArray[i].width = 50;
-		imgArray[i].height = 50;
-		imgArray[i].x = 250+span;
-		span+=100;
-	}
-	
-/*imgArray[4] = new Image();
-imgArray[4].src = '/static/computational_thinking/assets/decompose.png';
-
-imgArray[5] = new Image();
-imgArray[5].src = '/static/computational_thinking/assets/algorithm.png';
-*/
 
 function play()
 {
@@ -48,9 +48,12 @@ function play()
 	buttReady = true;
 		};
 
-	buttImage.src = "/static/computational_thinking/assets/next-button.png";
+	buttImage.src = "/static/computational_thinking/assets/lamp.png";
 	//Button Image
+	buttImage.width = 50;
+	buttImage.height = 50;
 	
+
 	
 	
 	function imgcollides( x, y) {
@@ -107,7 +110,7 @@ function play()
     ctx.textBaseline = 'top';
 
     /// color for background
-    ctx.fillStyle = '#f50';
+    ///ctx.fillStyle = '#f50';
 
     /// get width of text
     var width = ctx.measureText(txt).width;
@@ -116,7 +119,7 @@ function play()
     ctx.fillRect(x, y, width, parseInt(font, 10));
 
     /// text color
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = 'white';
 
     /// draw text on top
     ctx.fillText(txt, x, y);
@@ -129,60 +132,7 @@ function play()
     return Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 	
-	
-	//generating random number for x, y and filling labels
-	/*function generate(x,y,lab1,lab2,lab3,lab4, labnums){
 		
-		x = getRandomInt(1,10);
-		y = getRandomInt(1,10);
-		
-		
-		//alert(x);
-		//alert(y);
-		var f=x.toString();
-		var z=y.toString();
-		var nums = "";
-		nums= nums.concat(f,"*",z);
-		labnums.str = nums;
-		var l1="",l2="",l3="",l4="";
-		for(i=0 ; i<(y-1) ; i++){
-			l1=l1.concat(f,"+");
-		}
-		l1=l1.concat(f);
-		for(i=0 ; i<(y) ; i++){
-			l2=l2.concat(f,"+");
-		}
-		l2=l2.concat(f);
-		for(i=0 ; i<(x+1) ; i++){
-			l3=l3.concat(z,"+");
-		}
-		l3=l3.concat(z);
-		for(i=0 ; i<(x+2) ; i++){
-			l4=l4.concat(z,"+");
-		}
-		l4=l4.concat(z);
-		
-		lab1.str=l1;
-		lab2.str=l2;
-		lab3.str=l3;
-		lab4.str=l4;
-		
-		var labels = [lab1, lab2, lab3, lab4]; 
-		shuffle(labels);
-		//alert(lab1.str);
-		//alert(labels[0].str);
-		
-		for(i=0 ; i< labels.length ; i++){
-			
-			labels[i].width=canvas.getContext("2d").measureText(labels[i].str).width *2.4;
-			labels[i].height=parseInt("20px Verdana", 10);
-			labels[i].y = 300 + i*(labels[i].height+15);
-		}
-	}*/
-	
-	
-	
-	
 	
 	function collides( x, y,img) {
     var isCollision = false;
@@ -207,12 +157,9 @@ var drawingSurface = canvas.getContext("2d");
 
 canvas.width = 1020;
 canvas.height = 600;
-canvas.style.backgroundColor="#AADAB1";
+canvas.style.backgroundColor="#7FFFD4";
 
-image1=new Image();
-image1.src="/static/computational_thinking/assets/next-button.png";
-image2=new Image();
-image2.src="/static/computational_thinking/assets/next-button.png";
+
 
 
 var r1;
@@ -256,8 +203,10 @@ function mousemoveHandler(event)
 
    if (stage==1) {
 	  canvas.style.cursor = "default";
-	if(collides(mouseX, mouseY, imgArray[0]) || collides(mouseX, mouseY, imgArray[1]) || collides(mouseX, mouseY, imgArray[2]) || collides(mouseX, mouseY, imgArray[3]))
+	if(collides(mouseX, mouseY, img3) || collides(mouseX, mouseY, img4) || collides(mouseX, mouseY, img5) || collides(mouseX, mouseY, img6))
     canvas.style.cursor = "pointer";
+	if (imgcollides(mouseX, mouseY))
+	canvas.style.cursor = "pointer";	
    
    }
 
@@ -272,6 +221,8 @@ function mousemoveHandler(event)
     if (mouseX>100 && mouseX<370  && mouseY>400 && mouseY<550){
   canvas.style.cursor = "pointer";}
    }
+   
+   
 
 
 }
@@ -293,7 +244,7 @@ function mousedownHandler(event)
   
   if (stage==1) {
     
-	if(collides(mouseX, mouseY, imgArray[1])){
+  if(collides(mouseX, mouseY, imgArray[1])){
 		stage=2;
 		cor++;
   }
@@ -302,13 +253,14 @@ function mousedownHandler(event)
 	
    
 	if (imgcollides(mouseX, mouseY))
-		alert("Σπάσε τον πολλαπλασιασμό σε διαδοχικές προσθέσεις");
+		alert("Υπάρχει κάποια συγκεκριμένη σειρά με την οποία εμφανίζονται οι εικόνες;");
   }
    
    if (stage==2 || stage==3) {
    if (mouseX>100 && mouseX<350  && mouseY>400 && mouseY<550){
     if (count<=10) {
 	//generate(x,y,lab1,lab2,lab3,lab4, labnums);
+	shuffle(imgArray);
 	stage=1;
   count++;}
    if (count>10) {
@@ -326,7 +278,6 @@ function mousedownHandler(event)
 }
 
 shuffle(imgArray);
-//generate(x,y,lab1,lab2,lab3,lab4, labnums);
 update();
 
 
@@ -335,7 +286,7 @@ requestAnimationFrame(update, canvas);
 
 if (stage==1) {
 	
-	drawingSurface.fillStyle="#00FFCC";
+	drawingSurface.fillStyle="#7FFFD4";
 	drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 	
 	
@@ -348,39 +299,38 @@ if (stage==1) {
 	drawingSurface.fillText(lab4.str,420,600);
 	*/
 	drawTextBG(canvas.getContext("2d"), labtxt.str, "30px Verdana", labtxt.x, labtxt.y);
-
+	//var span = 0;
 	for(i=0; i<4; i++){
 		drawingSurface.drawImage
-	(imgArray[i],imgArray[i].x ,imgArray[i].y, imgArray[i].width, imgArray[i].height);
+	(imgArray[i].img,imgArray[i].x ,280, 50, 50);
+	//	imgArray[i].x = 250+span;
+	//	span+=100;
 	
 	}
 	
 	
 	drawingSurface.drawImage
-	(imgArray[0],100,400, 50, 50);
+	(imgArray[0].img,100,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[0],175,400, 50, 50);
+	(imgArray[0].img,175,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[2],250,400, 50, 50);
+	(imgArray[2].img,250,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[1],325,400, 50, 50);
+	(imgArray[1].img,325,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[1],400,400, 50, 50);
+	(imgArray[1].img,400,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[3],475,400, 50, 50);
+	(imgArray[3].img,475,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[0],550,400, 50, 50);
+	(imgArray[0].img,550,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[0],625,400, 50, 50);
+	(imgArray[0].img,625,400, 50, 50);
 	drawingSurface.drawImage
-	(imgArray[2],700,400, 50, 50);
-	//drawTextBG(canvas.getContext("2d"), lab1.str, "20px Verdana", 420, lab1.y);
-	//drawTextBG(canvas.getContext("2d"), lab2.str, "20px Verdana", 420, lab2.y);
-	//drawTextBG(canvas.getContext("2d"), lab3.str, "20px Verdana", 420, lab3.y);
-	//drawTextBG(canvas.getContext("2d"), lab4.str, "20px Verdana", 420, lab4.y);
+	(imgArray[2].img,700,400, 50, 50);
+	
 	
 	if (buttReady) {
-		 canvas.getContext("2d").drawImage(buttImage, 800, 540);
+		 canvas.getContext("2d").drawImage(buttImage, 800, 540 , buttImage.width, buttImage.height);
 	}
 	
 	
@@ -406,7 +356,7 @@ drawingSurface.fillText("Για ηλικίες: 8+",20,360);
 drawingSurface.drawImage
  (image2,350,170, 250, 250);
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(375,450,250,120);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#000080";
@@ -417,7 +367,7 @@ drawingSurface.fillStyle= "#000080";
 }
 
 if (stage==2) {
-drawingSurface.fillStyle="#00FFCC";
+drawingSurface.fillStyle="#7FFFD4";
 drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -425,9 +375,9 @@ drawingSurface.fillStyle= "#000080";
 drawingSurface.fillText("ΜΠΡΑΒΟ!ΣΩΣΤΟ!",170,200);
 
 drawingSurface.drawImage
- (image2,600,330, 250, 250);
+ (image1,600,330, 250, 250);
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(100,400,250,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
@@ -439,7 +389,7 @@ flag=true;
 }
 
 if (stage==3) {
-drawingSurface.fillStyle="#00FFCC";
+drawingSurface.fillStyle="#7FFFD4";
 drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -449,14 +399,14 @@ drawingSurface.font = "30px Verdana";
 drawingSurface.fillStyle= "#000080";
 drawingSurface.fillText("Η σωστή απάντηση είναι:  ",100,270);
 drawingSurface.drawImage
-	(imgArray[1],250,245, 50, 50);
+	(imgArray[1].img, 500, 235, 50, 50);
 
 
 drawingSurface.drawImage
  (image2,600,330, 250, 250);
 
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(100,400,250,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
@@ -468,7 +418,7 @@ flag=true;
 }
 
 if (stage==4) {
-drawingSurface.fillStyle="#00FFCC";
+drawingSurface.fillStyle="#7FFFD4";
 drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -482,15 +432,13 @@ drawingSurface.fillText("Η βαθμολογία σου είναι:  "+cor+"/10"
 drawingSurface.drawImage
  (image2,600,330, 250, 250);
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(100,400,270,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
 drawingSurface.fillText("ΠΙΣΩ",110,490);
 
-drawingSurface.font = "20px Verdana";
-drawingSurface.fillStyle= "#000080";
-drawingSurface.fillText("kpapast Games",850,580);
+
 
 }
 

@@ -26,7 +26,7 @@
 			</div>
 		
 		<div class = "centerContainer">			
-			<div id="gameboard" style="width:1020; height:600;">
+			<div id="gameboard"">
 								
 				<!--<button type="button" name="selection" value="val" hidden="true" id="d" 	>Click Me!</button>    -->
 				<script>
@@ -36,28 +36,9 @@
 				<script type="text/javascript" src="{% static 'computational_thinking/requestAnimationFramePolyfill.js' %}"></script>
 				<script type="text/javascript" src="{% static 'computational_thinking/multi.js' %}"></script>
 				<script>
-				/*function test(){
-				if(document.getElementById("d").value=="intro"){
-				var para = document.createElement("div");
-				para.id="did";
-				para.name="DANAME";
-				para.style.width="1020";
-				para.setAttribute("style","width:1020");
-				para.style.color="black";
-				var node = document.createTextNode("This is newgl;oivp;piv;pbio/p;o.");
-				para.appendChild(node);
 
-				var element = document.getElementById("gameboard");
-				var child = document.getElementById("p1");
-				element.insertBefore(para,child);
-				
-				
-				}
-				else if(document.getElementById("d").value=="multiplication")
-				{*/
 				play();
-				//}
-				//}
+
 				</script>
 				
     		</div>
@@ -83,7 +64,7 @@
 																<li><a href="multi.html" />Πολλαπλασιασμός</a></li>
 																<li><a href="cubes.html" />Κύβοι</a></li>
 																<li><a href="tiles.html" />Πλακάκια</a></li>
-																<li><a href="chess.html" />Σκάκι</a></li>
+																
 															
 															</ul>
 													</div>
@@ -100,7 +81,7 @@
 									</li>
 									
 									<li>
-											<a href = "#">
+											<a href = "abstraction.html">
 													<div>
 														<input type="image" src="{% static 'computational_thinking/assets/abstraction.png' %}" alt="Submit" width="30%" height="30%">
 														<center>Αφαιρεση</center>

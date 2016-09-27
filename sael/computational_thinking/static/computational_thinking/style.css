@@ -34,6 +34,7 @@ ul{
 
 body{
 	background-image: url("/static/computational_thinking/assets/background.jpg");
+	background-repeat:no repeat;
 }
 
 #gameboard{
@@ -50,12 +51,16 @@ body{
 	border-bottom-width:15px;
 	width: 1020;
 	min-height: 600;
-
-	margin-left:150px;
+	
+	float:left;
+	margin-left:0;
+	position:relative;
+	left:42%;
 }
 
 #titleSpace{
 	float:top;
+	width:1280;
 	
 }
 

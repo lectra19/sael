@@ -55,41 +55,7 @@ buttImage.onclick = function(){
 			state = "page2";
 		}
 }
-//Hero image
-// var heroReady = false;
-// var heroImage = new Image();
-// heroImage.onload = function () {
-	// heroReady = true;
-// };
-// heroImage.src = "images/hero.png";
 
-//Monster image
-// var monsterReady = false;
-// var monsterImage = new Image();
-// monsterImage.onload = function () {
-	// monsterReady = true;
-// };
-// monsterImage.src = "images/monster.png";
-
-// Game objects
-// var hero = {
-	// speed: 256 // movement in pixels per second
-// };
-// var monster = {};
-// var monstersCaught = 0;
-
-//Handle keyboard controls
-// var keysDown = {};
-
-// addEventListener("keydown", function (e) {
-	// keysDown[e.keyCode] = true;
-// }, false);
-
-// addEventListener("keyup", function (e) {
-	// delete keysDown[e.keyCode];
-// }, false);
-
-// Reset the game when the player catches a monster
 var reset = function () {
 	// hero.x = canvas.width / 2;
 	// hero.y = canvas.height / 2;

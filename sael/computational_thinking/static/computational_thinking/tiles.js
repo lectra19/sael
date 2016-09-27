@@ -1,12 +1,24 @@
 
-var lab1={str:"",x:420,y:460,width:0,height:0}; 
-var lab2={str:"",x:420,y:500,width:0,height:0};
-var lab3={str:"",x:520,y:460,width:0,height:0};
-var lab4={str:"",x:520,y:500,width:0,height:0};
-var labtxt={str:"Έχουμε το παρακάτω φαντασικό δωμάτιο. Πόση είναι η αποσταση απο............ 10cm;",x:30,y:120,width:0,height:0};  //ΟΛΟΚΛΗΡΩΣΗ ΚΕΙΜΕΝΟΥ
+var lab1={str:"",x:420,y:500,width:0,height:0}; 
+var lab2={str:"",x:420,y:540,width:0,height:0};
+var lab3={str:"",x:520,y:500,width:0,height:0};
+var lab4={str:"",x:520,y:540,width:0,height:0};
+var lab5={str:"",x:420,y:500,width:0,height:0}; 
+var lab6={str:"",x:420,y:540,width:0,height:0};
+var lab7={str:"",x:580,y:500,width:0,height:0};
+var lab8={str:"",x:580,y:540,width:0,height:0};
+var labtxt={str:"Ποια είναι η απόσταση απο το Α στο Β;",x:30,y:120,width:0,height:0}; 
+var labtxt1={str:"Μετά υπολόγισε το εμδαδόν του δωματίου. Ποιο είναι αυτό;",x:30,y:150,width:0,height:0};
+var done = false;
 
+var image1=new Image();
+image1.src="/static/computational_thinking/assets/tiles.png"; 
 
+var image2=new Image();
+image2.src="/static/computational_thinking/assets/thumb.png"; 
 
+var image3=new Image();
+image3.src="/static/computational_thinking/assets/thumbdown.png"; 
 
 
 function play()
@@ -20,7 +32,7 @@ function play()
 	buttReady = true;
 		};
 
-	buttImage.src = "/static/computational_thinking/assets/next-button.png";   //ΚΑΤΑΛΛΗΛΗ ΕΙΚΟΝΑ
+	buttImage.src = "/static/computational_thinking/assets/lamp.png";   //ΚΑΤΑΛΛΗΛΗ ΕΙΚΟΝΑ
 	//Butt Image
 	
 	function imgcollides( x, y) {
@@ -68,7 +80,7 @@ function play()
     ctx.textBaseline = 'top';
 
     /// color for background
-    ctx.fillStyle = '#f50';
+    ///ctx.fillStyle = '#f50';
 
     /// get width of text
     var width = ctx.measureText(txt).width;
@@ -90,12 +102,12 @@ function play()
 	
 	
 	//generating random number for x, y and filling labels
-	function generate(lab1,lab2,lab3,lab4){
+	function generate(lab1,lab2,lab3,lab4, val1, val2, val3, val4){
 		
-		lab1.str="12";
-		lab2.str="24";
-		lab3.str="8";
-		lab4.str="16";
+		lab1.str=val1;
+		lab2.str=val2;
+		lab3.str=val3;
+		lab4.str=val4;
 		
 		var labels = [lab1, lab2, lab3, lab4]; 
 		shuffle(labels);
@@ -132,10 +144,6 @@ canvas.width = 1020;
 canvas.height = 600;
 canvas.style.backgroundColor="#7FFFD4";
 
-image1=new Image();
-image1.src="/static/computational_thinking/assets/next-button.png"; 	//ΑΛΛΑΓΗ ΕΙΚΟΝΩΝ -- Εικονα για οδηγιες
-image2=new Image();
-image2.src="/static/computational_thinking/assets/next-button.png";		//ΕΙκονα με τα πλακακια
 
 var stage=1;
 
@@ -191,13 +199,27 @@ function mousedownHandler(event)
   }
    
 	if(stage==2 || stage==3){
-		    if (mouseX>100 && mouseX<370  && mouseY>400 && mouseY<550){
-			window.location.href = "decompose.html";}
+		    if (mouseX>100 && mouseX<370  && mouseY>400 && mouseY<550  && !done){
+				generate(lab5,lab6, lab7, lab8, "900", "1800", "1200", "90");
+				stage=4;
+				
+			}
+			else if (done) window.location.href = "decompose.html";
+	
 	}
 
+	if(stage==4){
+		done = true;
+		if(collides(mouseX, mouseY, lab5)){
+		stage=2;
+		
+		}
+		else if(collides(mouseX, mouseY, lab6) || collides(mouseX, mouseY, lab7) || collides(mouseX, mouseY, lab8))
+		stage=3;
+	
+	}
 }
-
-generate(lab1,lab2,lab3,lab4);
+generate(lab1,lab2,lab3,lab4, "10", "30", "90", "40");
 update();
 
 
@@ -206,29 +228,30 @@ requestAnimationFrame(update, canvas);
 
 if (stage==1) {
 	
-	drawingSurface.fillStyle="#00FFCC";
+	drawingSurface.fillStyle="#7FFFD4";
 	drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 	
 	
 	drawTextBG(canvas.getContext("2d"), labtxt.str, "24px Verdana", labtxt.x, labtxt.y);
+	
 	drawTextBG(canvas.getContext("2d"), lab1.str, "20px Verdana", lab1.x, lab1.y);
 	drawTextBG(canvas.getContext("2d"), lab2.str, "20px Verdana", lab2.x, lab2.y);
 	drawTextBG(canvas.getContext("2d"), lab3.str, "20px Verdana", lab3.x, lab3.y);
 	drawTextBG(canvas.getContext("2d"), lab4.str, "20px Verdana", lab4.x, lab4.y);
 	
 	if (buttReady) {
-		 canvas.getContext("2d").drawImage(buttImage, 800, 540);
+		 canvas.getContext("2d").drawImage(buttImage, 800, 540, 50, 50);
 	}
 	
 	drawingSurface.drawImage
-	(image2,350,170, 250, 250);
+	(image1,226,170,  600, 320);
 	
 }
 
 
 
 if (stage==2) {
-drawingSurface.fillStyle="#00FFCC";
+drawingSurface.fillStyle="#7FFFD4";
 drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -238,7 +261,7 @@ drawingSurface.fillText("ΜΠΡΑΒΟ!ΣΩΣΤΟ!",170,200);
 drawingSurface.drawImage
  (image2,600,330, 250, 250);
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(100,400,250,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
@@ -250,7 +273,7 @@ flag=true;
 }
 
 if (stage==3) {
-drawingSurface.fillStyle="#00FFCC";
+drawingSurface.fillStyle="#7FFFD4";
 drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
 
 drawingSurface.font = "80px Verdana";
@@ -258,13 +281,15 @@ drawingSurface.fillStyle= "#660000";
 drawingSurface.fillText("ΛΑΘΟΣ!!",320,180);
 drawingSurface.font = "30px Verdana";
 drawingSurface.fillStyle= "#000080";
+if(!done)
 drawingSurface.fillText("Η σωστή απάντηση είναι:  "+lab2.str,100,270);
+else drawingSurface.fillText("Η σωστή απάντηση είναι:  "+lab5.str,100,270);
 
 drawingSurface.drawImage
- (image2,600,330, 250, 250);
+ (image3,600,330, 250, 250);
 
 
-drawingSurface.fillStyle= "#CCFF66";
+drawingSurface.fillStyle= "#7FFFD4";
 drawingSurface.fillRect(100,400,250,150);
 drawingSurface.font = "40px Verdana";
 drawingSurface.fillStyle= "#660000";
@@ -275,6 +300,30 @@ flag=true;
 
 }
 
+if (stage==4) {
+	
+	drawingSurface.fillStyle="#7FFFD4";
+	drawingSurface.fillRect(0, 0, canvas.width, canvas.height);
+	
+	
+	drawTextBG(canvas.getContext("2d"), labtxt1.str, "24px Verdana", labtxt1.x, labtxt1.y);
+	drawTextBG(canvas.getContext("2d"), lab5.str, "20px Verdana", lab5.x, lab5.y);
+	drawTextBG(canvas.getContext("2d"), lab6.str, "20px Verdana", lab6.x, lab6.y);
+	drawTextBG(canvas.getContext("2d"), lab7.str, "20px Verdana", lab7.x, lab7.y);
+	drawTextBG(canvas.getContext("2d"), lab8.str, "20px Verdana", lab8.x, lab8.y);
+	
+	if (buttReady) {
+		 canvas.getContext("2d").drawImage(buttImage, 800, 540);
+	}
+	
+	drawingSurface.drawImage
+	(image1,226,170,  600, 320);
+	
 }
+
+
+
+}
+
 
 }
